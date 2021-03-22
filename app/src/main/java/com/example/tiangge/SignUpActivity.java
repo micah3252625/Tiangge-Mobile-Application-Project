@@ -9,6 +9,8 @@ import android.view.WindowManager;
 import android.widget.Button;
 
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class SignUpActivity extends AppCompatActivity {
 
@@ -16,6 +18,8 @@ public class SignUpActivity extends AppCompatActivity {
     Button callLogin, regBtn;
     TextInputLayout regName, regUsername, regEmail, regPhoneNo, regPassword;
 
+    FirebaseDatabase rootNode;
+    DatabaseReference reference;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,22 +33,26 @@ public class SignUpActivity extends AppCompatActivity {
         regEmail = findViewById(R.id.reg_email);
         regPhoneNo = findViewById(R.id.reg_phoneNo);
         regPassword = findViewById(R.id.reg_password);
-        regBtn = findViewById(R.id.signup_btn);
+        regBtn = findViewById(R.id.reg_btn);
 
         // Save the datas in Firebase when button si click
         regBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
+                rootNode = FirebaseDatabase.getInstance();
+                reference = rootNode.getReference("users");
 
+                reference.setValue("First data storage");
             }
         });
+        /*
         callLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(SignUpActivity.this, LogInActivity.class);
                 startActivity(intent);
             }
-        });
+        }); */
     }
 
     private Boolean validateName(){
@@ -129,6 +137,7 @@ public class SignUpActivity extends AppCompatActivity {
     }
 
     // Save data in Firebase on Button click
+    /*
     public void registerUser(View view){
 
         if (!validateName() || !validatePassword() || !validatePhoneNo() || !validateEmail() || !validateUsername()){
@@ -142,5 +151,5 @@ public class SignUpActivity extends AppCompatActivity {
         String password = regPassword.getEditText().getText().toString();
         UserHelperClass helperClass = new UserHelperClass(name, username, email, phoneNo, password);
         reference.child(username).setValue(helperClass);
-    }
+    } */
 }
