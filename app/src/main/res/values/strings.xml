@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Tiangge</string>
+    <string name="greetings">Buenas Zamboanguenos!</string>
+    <string name="slogan_name">Log in to continue</string>
+    <string name="slogan_name2">Sign up to continue</string>
+    <string name="login_msg">By creating an account, you agree to our Terms of Service and Privacy Policy</string>
+    <string name="forget_pass"><u>Forget Password?</u></string>
+    <string name="askSign_up">Dont have an account? Click here to </string>
+    <string name="sign_upText">create a new account.</string>
+    <string name="askLogin">Already have an account? Click here to </string>
+    <string name="loginText">Log in to your account.</string>
+    <string name="welcome">Welcome</string>
+</resources>
