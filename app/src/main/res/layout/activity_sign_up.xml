@@ -88,7 +88,7 @@
             app:startIconTint="@color/gray_700">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/reg_Username"
+                android:id="@+id/reg_username"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/white"
@@ -107,7 +107,7 @@
             app:startIconTint="@color/gray_700">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/reg_Email"
+                android:id="@+id/reg_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/white"
@@ -126,7 +126,7 @@
             app:startIconTint="@color/gray_700">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/reg_PhoneNo"
+                android:id="@+id/reg_phoneNo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/white"
@@ -147,7 +147,7 @@
             app:startIconTint="@color/gray_700">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/reg_Password"
+                android:id="@+id/reg_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/white"

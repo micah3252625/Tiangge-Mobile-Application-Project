@@ -12,16 +12,32 @@ import com.google.android.material.textfield.TextInputLayout;
 
 public class SignUpActivity extends AppCompatActivity {
 
-    Button callLogin;
+    //variables
+    Button callLogin, regBtn;
     TextInputLayout regName, regUsername, regEmail, regPhoneNo, regPassword;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
+        // fetch all xml elements in activity_sign_up.xml
         callLogin = findViewById(R.id.login_btn);
+        regName = findViewById(R.id.reg_name);
+        regUsername = findViewById(R.id.reg_username);
+        regEmail = findViewById(R.id.reg_email);
+        regPhoneNo = findViewById(R.id.reg_phoneNo);
+        regPassword = findViewById(R.id.reg_password);
+        regBtn = findViewById(R.id.signup_btn);
 
+        // Save the datas in Firebase when button si click
+        regBtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
         callLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
