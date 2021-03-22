@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "805248895739",
-    "project_id": "tiangge-90759",
-    "storage_bucket": "tiangge-90759.appspot.com"
+    "project_number": "251721716547",
+    "project_id": "tiangge-database",
+    "storage_bucket": "tiangge-database.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:805248895739:android:c615ce022802e4f6033e5e",
+        "mobilesdk_app_id": "1:251721716547:android:7fb3c41268daa4b36f95f6",
         "android_client_info": {
           "package_name": "com.example.tiangge"
         }
       },
       "oauth_client": [
         {
-          "client_id": "805248895739-hi5ju02cirqhd46vlatqbtm9tjksh186.apps.googleusercontent.com",
+          "client_id": "251721716547-ctasdsn1cn694ukia9jhl8r5e6dgpblf.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCrBIH6WrTVu9CHXyaR80bhUtlISa0IyAg"
+          "current_key": "AIzaSyDN1KzMyTo9U1_ZXljO6Zjh4XHNr8efG60"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "805248895739-hi5ju02cirqhd46vlatqbtm9tjksh186.apps.googleusercontent.com",
+              "client_id": "251721716547-ctasdsn1cn694ukia9jhl8r5e6dgpblf.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

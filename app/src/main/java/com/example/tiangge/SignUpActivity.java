@@ -20,6 +20,7 @@ public class SignUpActivity extends AppCompatActivity {
 
     FirebaseDatabase rootNode;
     DatabaseReference reference;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,7 +28,7 @@ public class SignUpActivity extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         // fetch all xml elements in activity_sign_up.xml
-        callLogin = findViewById(R.id.login_btn);
+        callLogin = findViewById(R.id.reg_to_login_btn);
         regName = findViewById(R.id.reg_name);
         regUsername = findViewById(R.id.reg_username);
         regEmail = findViewById(R.id.reg_email);
@@ -35,14 +36,27 @@ public class SignUpActivity extends AppCompatActivity {
         regPassword = findViewById(R.id.reg_password);
         regBtn = findViewById(R.id.reg_btn);
 
-        // Save the datas in Firebase when button si click
+        // Save the data in Firebase when button si click
         regBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
+
                 rootNode = FirebaseDatabase.getInstance();
                 reference = rootNode.getReference("users");
 
-                reference.setValue("First data storage");
+                if (!validateName() || !validatePassword() || !validatePhoneNo() || !validateEmail() || !validateUsername()){
+                    return;
+                }
+
+                // Fetch all the values in string
+                String name = regName.getEditText().getText().toString();
+                String username = regUsername.getEditText().getText().toString();
+                String email = regEmail.getEditText().getText().toString();
+                String phoneNo = regPhoneNo.getEditText().getText().toString();
+                String password = regPassword.getEditText().getText().toString();
+                UserHelperClass helperClass = new UserHelperClass(name, username, email, phoneNo, password);
+
+                reference.child(username).setValue(helperClass);
             }
         });
         /*
@@ -55,9 +69,9 @@ public class SignUpActivity extends AppCompatActivity {
         }); */
     }
 
+
     private Boolean validateName(){
         String val = regName.getEditText().getText().toString();
-
         if (val.isEmpty()){
             regName.setError("Field cannot be empty");
             return false;
@@ -70,17 +84,13 @@ public class SignUpActivity extends AppCompatActivity {
     }
     private Boolean validateUsername(){
         String val = regUsername.getEditText().getText().toString();
-        String noWhiteSpace = "(?=\\s+$)";
+        String noWhiteSpace = "\\\\w*";
         if (val.isEmpty()){
             regUsername.setError("Field cannot be empty");
             return false;
         }
         else if (val.length() >= 15) {
             regUsername.setError("Username too long");
-            return false;
-        }
-        else if (!val.matches(noWhiteSpace)){
-            regUsername.setError("White spaces are not allowed");
             return false;
         }
         else {
@@ -135,6 +145,8 @@ public class SignUpActivity extends AppCompatActivity {
             return true;
         }
     }
+
+
 
     // Save data in Firebase on Button click
     /*
