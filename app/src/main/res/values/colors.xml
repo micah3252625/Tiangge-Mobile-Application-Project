@@ -6,5 +6,6 @@
     <color name="green_500">#45b048</color>
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
+    <color name="activity_bgColor">#F5F6F8</color>
     <color name="white">#FFFFFFFF</color>
 </resources>

@@ -9,5 +9,6 @@
     <string name="sign_upText">create a new account.</string>
     <string name="askLogin">Already have an account? Click here to </string>
     <string name="loginText">Log in to your account.</string>
-    <string name="welcome">Welcome</string>
+    <string name="buenas">Buenas</string>
+    <string name="welcome">Welcome to Tiangge!</string>
 </resources>

@@ -2,8 +2,11 @@ package com.example.tiangge;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.util.Pair;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -12,11 +15,14 @@ import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+
 public class SignUpActivity extends AppCompatActivity {
 
     //variables
     Button callLogin, regBtn;
     TextInputLayout regName, regUsername, regEmail, regPhoneNo, regPassword;
+    String buenas;
+    protected static final String EXTRA_MESSAGE = "juantribe.android.proj.com.tiangge";
 
     FirebaseDatabase rootNode;
     DatabaseReference reference;
@@ -35,7 +41,7 @@ public class SignUpActivity extends AppCompatActivity {
         regPhoneNo = findViewById(R.id.reg_phoneNo);
         regPassword = findViewById(R.id.reg_password);
         regBtn = findViewById(R.id.reg_btn);
-
+        buenas = getString(R.string.buenas);
         // Save the data in Firebase when button si click
         regBtn.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -57,19 +63,15 @@ public class SignUpActivity extends AppCompatActivity {
                 UserHelperClass helperClass = new UserHelperClass(name, username, email, phoneNo, password);
 
                 reference.child(username).setValue(helperClass);
-            }
-        });
-        /*
-        callLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(SignUpActivity.this, LogInActivity.class);
+
+                Intent intent = new Intent(SignUpActivity.this, SuccessSignUp.class);
+                intent.putExtra(EXTRA_MESSAGE, buenas + " " + name + "!");
                 startActivity(intent);
             }
-        }); */
+        });
     }
 
-
+    // FORM VALIDATION METHOD
     private Boolean validateName(){
         String val = regName.getEditText().getText().toString();
         if (val.isEmpty()){
@@ -146,22 +148,6 @@ public class SignUpActivity extends AppCompatActivity {
         }
     }
 
+    //  PASS THE NAME OF USER TO THE SuccessSignUp Activity using EXPLICIT INTENT
 
-
-    // Save data in Firebase on Button click
-    /*
-    public void registerUser(View view){
-
-        if (!validateName() || !validatePassword() || !validatePhoneNo() || !validateEmail() || !validateUsername()){
-            return;
-        }
-        // Fetch all the values in string
-        String name = regName.getEditText().getText().toString();
-        String username = regUsername.getEditText().getText().toString();
-        String email = regEmail.getEditText().getText().toString();
-        String phoneNo = regPhoneNo.getEditText().getText().toString();
-        String password = regPassword.getEditText().getText().toString();
-        UserHelperClass helperClass = new UserHelperClass(name, username, email, phoneNo, password);
-        reference.child(username).setValue(helperClass);
-    } */
 }
