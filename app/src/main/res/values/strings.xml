@@ -11,4 +11,5 @@
     <string name="loginText">Log in to your account.</string>
     <string name="buenas">Buenas</string>
     <string name="welcome">Welcome to Tiangge!</string>
+    <string name="welcome2">Login Successful</string>
 </resources>

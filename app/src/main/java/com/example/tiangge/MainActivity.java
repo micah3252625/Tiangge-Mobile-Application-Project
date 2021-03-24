@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         ImageView image = findViewById(R.id.logo);
+
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {

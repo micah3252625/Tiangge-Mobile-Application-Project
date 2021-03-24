@@ -60,6 +60,7 @@ public class SignUpActivity extends AppCompatActivity {
                 String email = regEmail.getEditText().getText().toString();
                 String phoneNo = regPhoneNo.getEditText().getText().toString();
                 String password = regPassword.getEditText().getText().toString();
+
                 UserHelperClass helperClass = new UserHelperClass(name, username, email, phoneNo, password);
 
                 reference.child(username).setValue(helperClass);
@@ -97,6 +98,7 @@ public class SignUpActivity extends AppCompatActivity {
         }
         else {
             regUsername.setError(null);
+            regName.setErrorEnabled(false);
             return true;
         }
     }
